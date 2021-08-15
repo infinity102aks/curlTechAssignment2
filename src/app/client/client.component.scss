@@ -1,0 +1,23 @@
+.btn-accent {
+  background-color: rgba(74, 112, 74, 0.767);
+  border-radius: 4px !important;
+  color: white;
+
+  &:hover {
+    background-color: rgba(117, 175, 117, 0.767);
+    color: white;
+  }
+
+}
+
+
+input {
+  text-align: center;
+  background-color: rgb(212, 211, 211);
+}
+
+
+label {
+  color: grey;
+  font-weight: 600;
+}

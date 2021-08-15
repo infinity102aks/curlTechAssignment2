@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row justify-content-start h-100">
+    <div class="col-6 border-1">
+      <div class="row justify-content-center background-1">
+        Clients Awaiting
+      </div>
+      <div class="row justify-content-center mb-4">
+        <div class="col-10" *ngIf="clients.length">
+          <div class="row m-1" *ngFor="let client of clients">
+            <div class="col-11">
+              <div
+                class="row justify-content-between client-block"
+                *ngIf="!client?.approved"
+              >
+                <span class="col-auto"
+                  ><small>id: </small> {{ client._id }}</span
+                >
+                <span class="col-auto"
+                  ><small>name: </small> {{ client.name }}</span
+                >
+                <span class="col-auto"
+                  ><small>company: </small> {{ client.company }}</span
+                >
+                <button
+                  class="col-auto btn btn-sm btn-accent"
+                  (click)="approve(client)"
+                >
+                  Approve
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto" *ngIf="!clients.length">
+          <i class="fa fa-spinner fa-spin"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 border-1">
+      <div class="row justify-content-center background-1">
+        Clients Approved
+      </div>
+      <div class="row justify-content-center mb-4">
+        <div class="col-10" *ngIf="clients.length">
+          <div class="row m-1" *ngFor="let client of clients">
+            <div class="col-11" *ngIf="client?.approved">
+              <div class="row justify-content-between client-block">
+                <span class="col-auto"
+                  ><small>id: </small> {{ client._id }}</span
+                >
+                <span class="col-auto"
+                  ><small>name: </small> {{ client.name }}</span
+                >
+                <span class="col-auto"
+                  ><small>company: </small> {{ client.company }}</span
+                >
+                <button
+                  class="col-auto btn btn-sm btn-danger"
+                  (click)="remove(client)"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto" *ngIf="!clients.length">
+          <i class="fa fa-spinner fa-spin"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
